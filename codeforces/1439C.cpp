@@ -1,14 +1,17 @@
 //https://codeforces.com/contest/1439/submission/98712683 
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
 struct SegmentTree {
     int n;
     vector<int> mn, tag;
-    vector<long long> sum;
+    vector<ll> sum;
     SegmentTree(const vector<int>& a) {
         n = a.size();
-        mn.resize(4 * n), tag.resize(4 * n), sum.resize(4 * n);
+        mn.resize(4 * n);
+        tag.resize(4 * n);
+        sum.resize(4 * n);
         function<void(int, int, int)> build = [&](int p, int l, int r) {
             if (r - l == 1) {
                 mn[p] = sum[p] = a[l];
@@ -27,7 +30,7 @@ struct SegmentTree {
     }
     void set(int p, int l, int r, int v) {
         tag[p] = v, mn[p] = v;
-        sum[p] = 1LL * (r - l) * v;
+        sum[p] = ll(r - l) * v;
     }
     void push(int p, int l, int r) {
         if (tag[p] > 0) {

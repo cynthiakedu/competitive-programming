@@ -3,10 +3,11 @@ using namespace std;
 
 void solve() {
     int N, M, K;
+    cin >> N >> M >> K;
     vector<unordered_set<int>> adj(N + 5);
     vector<bool> r(N + 5);
     queue<int> q;
-    cin >> N >> M >> K;
+
 
     for (int m = 0, x, y; m < M; m++) {
         cin >> x >> y;
@@ -79,7 +80,8 @@ void solve() {
 int main() {
     ios_base::sync_with_stdio(false), cin.tie(0);
 
-    int t; cin >> t;
+    int t;
+    cin >> t;
     while (t--) solve();
 
     return 0;
